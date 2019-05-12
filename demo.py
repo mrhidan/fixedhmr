@@ -89,7 +89,7 @@ def visualize(img_path, img, proc_param, joints, verts, cam):
     plt.title('diff vp')
     plt.axis('off')
     plt.draw()
-    plt.savefig("hmr/output/images/"+os.path.splitext(os.path.basename(img_path))[0]+".png")
+    plt.savefig("fixedhmr/output/images/"+os.path.splitext(os.path.basename(img_path))[0]+".png")
     # import ipdb
     # ipdb.set_trace()
 
@@ -174,7 +174,7 @@ def main(img_path, json_path=None):
     joints_export['hip.Center_y'] = hipCenter.iloc[0][1::3].sum()/2
     joints_export['hip.Center_z'] = hipCenter.iloc[0][2::3].sum()/2
     
-    joints_export.to_csv("hmr/output/csv/"+os.path.splitext(os.path.basename(img_path))[0]+".csv")
+    joints_export.to_csv("fixedhmr/output/csv/"+os.path.splitext(os.path.basename(img_path))[0]+".csv")
     
 #     pose = pd.DataFrame(theta[:, 3:75])
     
@@ -187,14 +187,14 @@ def main(img_path, json_path=None):
 #     print('ROTATIONS:', rotations)
 
 def join_csv():
-  path = 'hmr/output/csv/'                   
+  path = 'fixedhmr/output/csv/'                   
   all_files = glob.glob(os.path.join(path, "*.csv")    )
 
   df_from_each_file = (pd.read_csv(f) for f in sorted(all_files))
   concatenated_df   = pd.concat(df_from_each_file, ignore_index=True)
 
   concatenated_df['frame'] = concatenated_df.index+1
-  concatenated_df.to_csv("hmr/output/csv_joined/csv_joined.csv", index=False)
+  concatenated_df.to_csv("fixedhmr/output/csv_joined/csv_joined.csv", index=False)
     
 if __name__ == '__main__':
     config = flags.FLAGS

@@ -65,7 +65,7 @@ def visualize(img_path, img, proc_param, joints, verts, cam):
     height, width, depth = img.shape
     dpi = 100
     figsize = width / float(dpi), height / float(dpi)
-    plt.figure(1)
+    plt.figure(1, figsize=figsize)
     plt.clf()
     plt.subplot(111)
     plt.imshow(rend_img_overlay)

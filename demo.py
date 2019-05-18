@@ -64,7 +64,7 @@ def visualize(img_path, img, proc_param, joints, verts, cam):
     # plt.ion()
     plt.figure(1)
     plt.clf()
-    plt.subplot(233)
+    plt.subplot(111)
     plt.imshow(rend_img_overlay)
     plt.title('3D Mesh overlay')
     plt.axis('off')

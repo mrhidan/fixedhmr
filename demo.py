@@ -64,29 +64,9 @@ def visualize(img_path, img, proc_param, joints, verts, cam):
     # plt.ion()
     plt.figure(1)
     plt.clf()
-    plt.subplot(231)
-    plt.imshow(img)
-    plt.title('input')
-    plt.axis('off')
-    plt.subplot(232)
-    plt.imshow(skel_img)
-    plt.title('joint projection')
-    plt.axis('off')
     plt.subplot(233)
     plt.imshow(rend_img_overlay)
     plt.title('3D Mesh overlay')
-    plt.axis('off')
-    plt.subplot(234)
-    plt.imshow(rend_img)
-    plt.title('3D mesh')
-    plt.axis('off')
-    plt.subplot(235)
-    plt.imshow(rend_img_vp1)
-    plt.title('diff vp')
-    plt.axis('off')
-    plt.subplot(236)
-    plt.imshow(rend_img_vp2)
-    plt.title('diff vp')
     plt.axis('off')
     plt.draw()
     plt.savefig("fixedhmr/output/images/"+os.path.splitext(os.path.basename(img_path))[0]+".png")
@@ -185,6 +165,7 @@ def main(img_path, json_path=None):
 #     import cv2
 #     rotations = [cv2.Rodrigues(aa)[0] for aa in pose.reshape(-1, 3)]
 #     print('ROTATIONS:', rotations)
+    visualize(img_path, img, proc_param, joints[0], verts[0], cams[0])
 
 def join_csv():
   path = 'fixedhmr/output/csv/'                   

@@ -62,11 +62,13 @@ def visualize(img_path, img, proc_param, joints, verts, cam):
 
     import matplotlib.pyplot as plt
     # plt.ion()
+    height, width, depth = img.shape
+    dpi = 100
+    figsize = width / float(dpi), height / float(dpi)
     plt.figure(1)
     plt.clf()
     plt.subplot(111)
     plt.imshow(rend_img_overlay)
-    plt.title('3D Mesh overlay')
     plt.axis('off')
     plt.draw()
     plt.savefig("fixedhmr/output/images/"+os.path.splitext(os.path.basename(img_path))[0]+".png")

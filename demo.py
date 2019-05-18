@@ -52,7 +52,7 @@ def visualize(img_path, img, proc_param, joints, verts, cam):
     # Render results
     skel_img = vis_util.draw_skeleton(img, joints_orig)
     rend_img_overlay = renderer(
-        vert_shifted, cam=cam_for_render, img=img, do_alpha=True)
+        vert_shifted, cam=cam_for_render, img=img, do_alpha=True, img_size=img.shape[:2])
     rend_img = renderer(
         vert_shifted, cam=cam_for_render, img_size=img.shape[:2])
     rend_img_vp1 = renderer.rotated(
